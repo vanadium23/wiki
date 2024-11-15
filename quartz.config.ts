@@ -8,13 +8,13 @@ import * as Plugin from "./quartz/plugins"
  */
 const config: QuartzConfig = {
   configuration: {
-    pageTitle: "vanadium23",
-    pageTitleSuffix: " - Junior CTO",
+    pageTitle: "ChernoWiki",
+    pageTitleSuffix: "",
     enableSPA: true,
     enablePopovers: true,
     analytics: null,
     locale: "ru-RU",
-    baseUrl: "vanadium23.me",
+    baseUrl: "chernov.wiki",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "created",
     generateSocialImages: true,
