@@ -30,7 +30,16 @@ export default ((opts?: Partial<ContentMetaOptions>) => {
       const segments: (string | JSX.Element)[] = []
 
       if (fileData.dates) {
-        segments.push(formatDate(getDate(cfg, fileData)!, cfg.locale))
+        if (fileData.dates.created) {
+          segments.push(
+            <span>Создано: {formatDate(fileData.dates.created, cfg.locale)}</span>
+          )
+        }
+        if (fileData.dates.modified) {
+          segments.push(
+            <span>Обновлено: {formatDate(fileData.dates.modified, cfg.locale)}</span>
+          )
+        }
       }
 
       // Display reading time if enabled

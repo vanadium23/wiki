@@ -49,6 +49,12 @@ export const AliasRedirects: QuartzEmitterPlugin = () => ({
       }
 
       for (let slug of slugs) {
+        // fix wrong permalinks
+        if (`/${ogSlug}/` == `${slug}`) {
+          console.warn(`AliasRedirects: ${slug} is the same as the original slug`)
+          continue
+        }
+
         // fix any slugs that have trailing slash
         if (slug.endsWith("/")) {
           slug = joinSegments(slug, "index") as FullSlug
