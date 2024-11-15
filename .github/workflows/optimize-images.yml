@@ -1,0 +1,26 @@
+name: Optimize images and PR
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - "**.png"
+      - "**.jpe?g"
+      - "**.svg"
+      - "**.gif"
+
+jobs:
+  optimize-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2 
+      - name: Optimize images
+        id: optimize-images
+        uses: Doist/optimize-images-action@v2
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          commit-message: "Optimize images (lossless)"
+          delete-branch: true
+          body: ${{ steps.optimize-images.outputs.summary }}
