@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-06T10:45:48+03:00","modified_at":"2024-11-16T11:24:24+03:00","title":"Кузня Чернова","aliases":"Кузня Чернова","permalink":"/forge/index/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-06T10:45:48+03:00","modified_at":"2024-11-18T13:59:58+03:00","title":"Кузня Чернова","aliases":"Кузня Чернова","permalink":"/forge/index/","dgPassFrontmatter":true}
 ---
 
 
@@ -14,5 +14,6 @@
 ## Над чем сейчас работаю?
 
 - [[forge/note-taking/в поисках идеального шаблона заметки|в поисках идеального шаблона заметки]]
+- [[forge/note-taking/кастомизация движка Quartz|кастомизация движка Quartz]]
 - [[forge/как я веду заметки|как я веду заметки]]
 - [[forge/event storming|event storming]] в рамках [[forge/архитектура сервиса|архитектуры сервиса]]
