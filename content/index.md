@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"title":"ChernoWiki","date":"2024-11-02T17:12:30+03:00","modified_at":"2024-11-18T17:50:53+03:00","started_at":"2018-06-10T13:50:57+03:00","permalink":"/index/","dgPassFrontmatter":true}
+{"dg-publish":true,"title":"ChernoWiki","date":"2024-11-02T17:12:30+03:00","modified_at":"2024-11-25T17:34:32+03:00","started_at":"2018-06-10T13:50:57+03:00","permalink":"/index/","dgPassFrontmatter":true}
 ---
 
 
@@ -10,11 +10,10 @@
 Поэтому сначала была попытка свалить это в [блог](https://vanadium23.me/), а теперь это стало отдельным сайтом:
 1. [[mine/index|шахта (mine)]] - то, куда теперь пойдёт референтная библиотека: цитаты, ссылки, книги, статьи курсы
 2. [[forge/index|кузня (forge)]] - то, что пишу сам в короткой форме по одной теме и может обновляться
-
-Если интересно, то можно ещё почитать [[forge/как устроен этот сайт технически|как устроен этот сайт технически]].
+3. [[meta/index|мета (meta)]] - процесс обновление процесса того, как устроен этот сайт. 
 
 ## Немного про заметки
 
 Первый коммит в приватном репозитории: 2018-06-10T13:50:57.000+03:00
 
-<span><span data-tag-name="p" class="el-p"><p dir="auto">Прошло 2352 дней со старта заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 6270 заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Проставлено 106 тегов. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 20476 задач. </p></span></span>
+<span><span data-tag-name="p" class="el-p"><p dir="auto">Прошло 2359 дней со старта заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 6290 заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Проставлено 106 тегов. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 20622 задач. </p></span></span>
