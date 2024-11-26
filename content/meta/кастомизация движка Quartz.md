@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-11-25T17:13:25+03:00","permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-11-27T00:15:32+03:00","permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
 ---
 
 
@@ -31,6 +31,8 @@
 - [x] разобраться с бесконечным permalink, если совпадает с slug
     - [ ] закинуть PR с фиксом бесконечных редиректов в upstream
 - [ ] починить шрифт в картинках на превьюшках
+    - [ ] Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
+- [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
 
 ## Добавлено в quartz
 
