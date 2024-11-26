@@ -15,7 +15,7 @@ const config: QuartzConfig = {
     analytics: null,
     locale: "ru-RU",
     baseUrl: "chernov.wiki",
-    ignorePatterns: ["private", "templates", ".obsidian"],
+    ignorePatterns: ["private", ".obsidian"],
     defaultDateType: "created",
     generateSocialImages: true,
     theme: {
