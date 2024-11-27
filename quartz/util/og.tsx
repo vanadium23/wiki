@@ -3,6 +3,7 @@ import { GlobalConfiguration } from "../cfg"
 import { QuartzPluginData } from "../plugins/vfile"
 import { JSXInternal } from "preact/src/jsx"
 import { ThemeKey } from "./theme"
+import { readFileSync } from "node:fs"
 
 /**
  * Get an array of `FontOptions` (for satori) given google font names
@@ -15,8 +16,10 @@ export async function getSatoriFont(headerFontName: string, bodyFontName: string
   const bodyWeight = 400 as FontWeight
 
   // Fetch fonts
-  const headerFont = await fetchTtf(headerFontName, headerWeight)
-  const bodyFont = await fetchTtf(bodyFontName, bodyWeight)
+  // const headerFont = await fetchTtf(headerFontName, headerWeight)
+  // const bodyFont = await fetchTtf(bodyFontName, bodyWeight)
+  const headerFont = readFileSync(import.meta.dirname + '/../static/fonts/Exo2-Bold.otf')
+  const bodyFont = readFileSync(import.meta.dirname + '/../static/fonts/SourceSansPro-Regular.otf')
 
   // Convert fonts to satori font format and return
   const fonts: SatoriOptions["fonts"] = [
