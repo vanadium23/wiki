@@ -1,10 +1,6 @@
 ---
-{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-11-27T12:30:23+03:00","permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-11-29T15:47:08+03:00","permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
 ---
-
-
-> [!todo]- **История работ**
-> - [ ] 
 
 
 Здесь будет более менее живая заметка о том, как происходит переход. Идея была честно скопирована с западного примера: https://quartz.eilleeenz.com/Quartz-customization-log
@@ -25,8 +21,8 @@
     - решилось тем, что openbox в архив, а quartz натянут на блог 
 - [x] починить slugify в [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]], который создаёт бесконечный редирект на quartz
     - решилось тем, что отключил slugify в настройках [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
-- [ ] починить preview для ссылок (opengraph метаданные)
-    - [ ] поменять картинку
+- [x] починить preview для ссылок (opengraph метаданные)
+    - [x] поменять картинку
 - [x] починить загрузку картинок через digital garden
 - [x] разобраться с бесконечным permalink, если совпадает с slug
     - [ ] закинуть PR с фиксом бесконечных редиректов в upstream
@@ -34,6 +30,8 @@
     - Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
     - пока сделал какой-то костыль [src](https://github.com/vanadium23/wiki/commit/336e09cfda0c7ba1ab4f50a21c401a379b7e33cb)
 - [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+- [x] неправильно работает загрузка и diff в publication center [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+    - оказалось логика дублируется, поэтому пришлось опять костылить [src](https://github.com/vanadium23/obsidian-digital-garden/commit/ed6fcabf3d44d2ff510ef58b094b4fc554a9e2eb) 
 
 ## Добавлено в quartz
 
