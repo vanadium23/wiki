@@ -9,11 +9,14 @@ export const sharedPageComponents: SharedLayout = {
     Component.Search(),
   ],
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Backlinks()
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
       "Discord Community": "https://discord.gg/cRFFHYye7t",
+      "Design": "https://owickstrom.github.io/the-monospace-web/"
     },
   }),
 }
@@ -27,15 +30,15 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.DesktopOnly(Component.TableOfContents()),
-    Component.DesktopOnly(Component.RecentNotes({
-      limit: 5,
-      showTags: false,
-    })),
+    // Component.DesktopOnly(Component.TableOfContents()),
+    // Component.DesktopOnly(Component.RecentNotes({
+    //   limit: 5,
+    //   showTags: false,
+    // })),
   ],
   right: [
-    Component.Backlinks(),
-  ],
+    // Component.Backlinks(),
+  ]
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
