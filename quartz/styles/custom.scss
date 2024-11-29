@@ -24,6 +24,14 @@
   font-size: 16px;
 }
 
+:root[saved-theme="dark"] {
+  color-scheme: dark;
+  --text-color: #fff;
+  --text-color-alt: #aaa;
+  --background-color: #000;
+  --background-color-alt: #111;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --text-color: #fff;
