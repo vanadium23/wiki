@@ -10,7 +10,7 @@ export const sharedPageComponents: SharedLayout = {
   ],
   header: [],
   afterBody: [
-    Component.Backlinks()
+    // Component.Backlinks()
   ],
   footer: Component.Footer({
     links: {
@@ -30,14 +30,14 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    // Component.DesktopOnly(Component.TableOfContents()),
+    Component.DesktopOnly(Component.TableOfContents()),
     // Component.DesktopOnly(Component.RecentNotes({
     //   limit: 5,
     //   showTags: false,
     // })),
   ],
   right: [
-    // Component.Backlinks(),
+    Component.Backlinks(),
   ]
 }
 
