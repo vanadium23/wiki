@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-11-29T15:47:08+03:00","permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-12-01T23:25:02+03:00","tags":["status/infinite"],"permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
 ---
 
 
@@ -25,7 +25,8 @@
     - [x] поменять картинку
 - [x] починить загрузку картинок через digital garden
 - [x] разобраться с бесконечным permalink, если совпадает с slug
-    - [ ] закинуть PR с фиксом бесконечных редиректов в upstream
+    - [x] закинуть PR с фиксом бесконечных редиректов в upstream
+        - [ссылка на PR](https://github.com/jackyzha0/quartz/pull/1631)
 - [x] починить шрифт в картинках на превьюшках
     - Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
     - пока сделал какой-то костыль [src](https://github.com/vanadium23/wiki/commit/336e09cfda0c7ba1ab4f50a21c401a379b7e33cb)
