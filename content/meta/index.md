@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-25T10:25:36+03:00","modified_at":"2024-11-25T17:35:49+03:00","title":"мета","permalink":"/meta/index/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-25T10:25:36+03:00","modified_at":"2024-11-25T17:35:49+03:00","title":"мета","tags":["status/infinite"],"permalink":"/meta/index/","dgPassFrontmatter":true}
 ---
 
 

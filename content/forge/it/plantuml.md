@@ -1,9 +1,7 @@
 ---
-{"dg-publish":true,"date":"2024-11-26T16:35:33+03:00","modified_at":"2024-11-26T17:12:49+03:00","permalink":"/forge/it/plantuml/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-26T16:35:33+03:00","modified_at":"2024-12-01T23:18:54+03:00","tags":["status/writing"],"permalink":"/forge/it/plantuml/","dgPassFrontmatter":true}
 ---
 
-
-up:: [[инструменты для создания диаграмм|инструменты для создания диаграмм]]
 
 PlantUML - текстовая нотация для создания диаграмм. Представляет из себя jar'ник, который можно натравить на текст и получить svg или png. Так же можно развернуть в виде web сервера, где будет UI.
 
@@ -22,7 +20,7 @@ docker run -d -p 8080:8080 plantuml/plantuml-server:jetty
 
 
 
-context:: 
+context:: [[инструменты для создания диаграмм|инструменты для создания диаграмм]]
 problem::
 
 ## Источники
