@@ -28,7 +28,8 @@ export default ((opts: Options) => {
   const Comments: QuartzComponent = ({ displayClass, fileData, cfg }: QuartzComponentProps) => {
     // check if comments should be displayed according to frontmatter
     const commentsFlag: boolean =
-      fileData.frontmatter?.comments === true || fileData.frontmatter?.comments === "true"
+      typeof fileData.frontmatter?.comments !== "undefined" &&
+      (fileData.frontmatter?.comments === true || fileData.frontmatter?.comments === "true")
     if (!commentsFlag) {
       return <></>
     }
