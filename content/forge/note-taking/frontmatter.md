@@ -3,7 +3,7 @@
 ---
 
 
-Front matter / ((передний край)) - один из способов размещать структурированные данные внутри markdown файлов. Представляет из себя "заголовок" в начале файла отбитые `---`. Польза их в том, что с ними можно обработать массово с помощью скриптов - [python](https://github.com/eyeseast/python-frontmatter), [golang](https://github.com/adrg/frontmatter) или построить [полноценную базу данных](https://markdowndb.com/). Хотя [[openbox/метаданные в obsidian|метаданные в obsidian]] можно делать и по-другому.
+Front matter / ((передний край)) - один из способов размещать структурированные данные внутри markdown файлов. Представляет из себя "заголовок" в начале файла отбитые `---`. Польза их в том, что с ними можно обработать массово с помощью скриптов - [python](https://github.com/eyeseast/python-frontmatter), [golang](https://github.com/adrg/frontmatter) или построить [полноценную базу данных](https://markdowndb.com/). Хотя [[forge/note-taking/метаданные в obsidian|метаданные в obsidian]] можно делать и по-другому.
 
 Пример в YAML:
 ```md
