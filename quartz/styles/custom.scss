@@ -33,20 +33,17 @@
   --background-color-alt: #111;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text-color: #fff;
-    --text-color-alt: #aaa;
-    --background-color: #000;
-    --background-color-alt: #111;
-  }
+:root[saved-theme="light"] {
+  color-scheme: light;
+  --text-color: #000;
+  --text-color-alt: #666;
+  --background-color: #fff;
+  --background-color-alt: #eee;
 }
 
 * {
   box-sizing: border-box;
 }
-
-
 
 html {
   display: flex;
