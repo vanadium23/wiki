@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-26T16:35:33+03:00","modified_at":"2024-12-01T23:18:54+03:00","tags":["status/writing"],"permalink":"/forge/it/plantuml/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-26T16:35:33+03:00","modified_at":"2024-12-02T17:23:52+03:00","tags":["status/writing","topic/software"],"permalink":"/forge/it/plantuml/","dgPassFrontmatter":true}
 ---
 
 

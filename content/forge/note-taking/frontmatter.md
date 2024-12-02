@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-25T17:41:59+03:00","modified_at":"2024-11-28T19:13:58+03:00","tags":["status/writing","review/needed"],"permalink":"/forge/note-taking/frontmatter/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-25T17:41:59+03:00","modified_at":"2024-12-02T17:27:17+03:00","tags":["status/writing","review/needed","topic/notes"],"permalink":"/forge/note-taking/frontmatter/","dgPassFrontmatter":true}
 ---
 
 
