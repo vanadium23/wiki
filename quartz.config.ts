@@ -16,7 +16,7 @@ const config: QuartzConfig = {
     locale: "ru-RU",
     baseUrl: "chernov.wiki",
     ignorePatterns: ["private", ".obsidian"],
-    defaultDateType: "created",
+    defaultDateType: "modified",
     generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
