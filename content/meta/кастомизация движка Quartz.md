@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-12-01T23:25:02+03:00","tags":["status/infinite"],"permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-12-03T16:12:51+03:00","tags":["status/infinite"],"permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
 ---
 
 
@@ -8,15 +8,16 @@
 ## Что хочется поменять
 
 Функционально:
+- [ ] сделать кастомный crawler, который поменяет Openbox url на урлы до [[openbox/цифровой архив|цифрового архива]].
 - [x] добавить Recent notes слева на Desktop
 - [x] добавить чтобы у заметки была дата создания и дата обновления
-- [ ] сделать кастомный crawler, который поменяет Openbox url на урлы до [[openbox/цифровой архив|цифрового архива]].
 - [x] добавить navbar с дизайном с vanadium23.me
-- [ ] на десктопе сделать более широкий контент
-- [ ] переверстать страницу одной заметки на более минималистичную
-- [ ] накатить новый дизайн на classless
+- [x] на десктопе сделать более широкий контент
+- [x] переверстать страницу одной заметки на более минималистичную
+- [x] накатить новый дизайн на classless
 
 Проблемы:
+- [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
 - [x] из-за наличия permalinks у меня не сломались старые пути, но новые выглядят как `openbox/Openbox` - необходимо придумать как от дубля избавиться
     - решилось тем, что openbox в архив, а quartz натянут на блог 
 - [x] починить slugify в [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]], который создаёт бесконечный редирект на quartz
@@ -30,7 +31,6 @@
 - [x] починить шрифт в картинках на превьюшках
     - Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
     - пока сделал какой-то костыль [src](https://github.com/vanadium23/wiki/commit/336e09cfda0c7ba1ab4f50a21c401a379b7e33cb)
-- [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
 - [x] неправильно работает загрузка и diff в publication center [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
     - оказалось логика дублируется, поэтому пришлось опять костылить [src](https://github.com/vanadium23/obsidian-digital-garden/commit/ed6fcabf3d44d2ff510ef58b094b4fc554a9e2eb) 
 
