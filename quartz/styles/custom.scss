@@ -12,6 +12,7 @@
   --text-color-alt: #666;
   --background-color: #fff;
   --background-color-alt: #eee;
+  --highlight: #704214;
 
   --font-weight-normal: 500;
   --font-weight-medium: 600;
@@ -79,6 +80,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: var(--font-weight-bold);
   margin: calc(var(--line-height) * 2) 0 var(--line-height);
   line-height: var(--line-height);
+
+  &[id] > a[href^="#"] {
+    margin: 0 0.5rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    transform: translateY(-0.1rem);
+    font-family: var(--codeFont);
+    user-select: none;
+  }
+
+  &[id]:hover > a {
+    opacity: 1;
+  }
+
+  article > & > a[role="anchor"] {
+    color: var(--dark);
+    background-color: transparent;
+  }
 }
 
 h1 {
@@ -113,6 +132,24 @@ hr:after {
 
 a {
   text-decoration-thickness: var(--border-thickness);
+  &.internal {
+    text-decoration: none;
+    background-color: var(--highlight);
+    padding: 0 0.1rem;
+    border-radius: 5px;
+    line-height: 1.4rem;
+
+    &:has(> img) {
+      background-color: none;
+      border-radius: 0;
+      padding: 0;
+    }
+    &.tag-link {
+      &::before {
+        content: "#";
+      }
+    }
+  }
 }
 
 a:link, a:visited {
@@ -261,6 +298,7 @@ figcaption {
 ul, ol {
   padding: 0;
   margin: 0 0 var(--line-height);
+  margin-top: calc(-0.5*var(--line-height));
 }
 
 ul {
@@ -288,6 +326,7 @@ ol li:before {
 li {
   margin: 0;
   padding: 0;
+  margin-bottom: 0.1rem;
 }
 
 li::marker {
@@ -622,6 +661,16 @@ label input {
     }
     & footer {
       margin-left: 0;
+    }
+  }
+}
+
+.backlinks {
+  ul {
+    li {
+      border: var(--border-thickness) solid var(--text-color);
+      padding: 0.5rem;
+      margin-bottom: 0.5rem;
     }
   }
 }
