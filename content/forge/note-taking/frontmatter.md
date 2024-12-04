@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-25T17:41:59+03:00","modified_at":"2024-12-02T23:39:39+03:00","tags":["status/writing","review/needed","topic/notes"],"permalink":"/forge/note-taking/frontmatter/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-25T17:41:59+03:00","modified_at":"2024-12-04T16:45:44+03:00","tags":["status/completed","review/pending","topic/notes"],"permalink":"/forge/note-taking/frontmatter/","dgPassFrontmatter":true}
 ---
 
 
@@ -22,6 +22,10 @@ date: 2024-11-25
 Стандартные для [[forge/it/static site generator|static site generator]] заголовки:
 - date - дата создания
 - tags - список тегов в заметке
+- permalink - ссылки на файл
+- title - заголовок страницы, если отличается от названия файла
+- published - дата публикации
+- modified - дата последнего изменения
 
 ## Что дальше
 
@@ -36,7 +40,8 @@ problem:: [[forge/note-taking/метаданные в заметках|мета�
 
 
 
-- 
+- https://gohugo.io/content-management/front-matter/
+- https://www.11ty.dev/docs/data-configuration/
 
 ## Как улучшить
 
