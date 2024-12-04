@@ -134,9 +134,10 @@ a {
   text-decoration-thickness: var(--border-thickness);
   &.internal {
     text-decoration: none;
-    background-color: var(--highlight);
+    border-bottom: var(--border-thickness) dotted var(--text-color);
+    // background-color: var(--highlight);
     padding: 0 0.1rem;
-    border-radius: 5px;
+    // border-radius: 5px;
     line-height: 1.4rem;
 
     &:has(> img) {
@@ -145,6 +146,7 @@ a {
       padding: 0;
     }
     &.tag-link {
+      border-bottom: none;
       &::before {
         content: "#";
       }
@@ -668,6 +670,9 @@ label input {
 .backlinks {
   ul {
     li {
+      a {
+        border-bottom: none;
+      }
       border: var(--border-thickness) solid var(--text-color);
       padding: 0.5rem;
       margin-bottom: 0.5rem;
