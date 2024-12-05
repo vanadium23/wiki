@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2024-11-25T17:41:59+03:00","modified_at":"2024-12-04T16:45:44+03:00","tags":["status/completed","review/pending","topic/notes"],"permalink":"/forge/note-taking/frontmatter/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-25T17:41:59+03:00","modified_at":"2024-12-05T15:20:53+03:00","tags":["status/completed","review/pending","topic/notes"],"permalink":"/forge/note-taking/frontmatter/","dgPassFrontmatter":true}
 ---
 
 
@@ -17,6 +17,13 @@ date: 2024-11-25
 ---
 {"date": "2024-11-25"}
 ---
+```
+
+А ещё TOML (обращаем внимание что стоят плюсики):
+```
++++
+date = 2024-11-25
++++
 ```
 
 Стандартные для [[forge/it/static site generator|static site generator]] заголовки:
