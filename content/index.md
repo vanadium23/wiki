@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"title":"ChernoWiki","date":"2024-11-02T17:12:30+03:00","modified_at":"2024-11-25T17:34:32+03:00","started_at":"2018-06-10T13:50:57+03:00","permalink":"/index/","dgPassFrontmatter":true}
+{"dg-publish":true,"title":"ChernoWiki","date":"2024-11-02T17:12:30+03:00","modified_at":"2025-01-28T11:09:10+03:00","started_at":"2018-06-10T13:50:57+03:00","permalink":"/index/","dgPassFrontmatter":true}
 ---
 
 
@@ -12,8 +12,14 @@
 2. [[forge/index|кузня (forge)]] - то, что пишу сам в короткой форме по одной теме и может обновляться
 3. [[meta/index|мета (meta)]] - процесс обновление процесса того, как устроен этот сайт. 
 
+## Принципы
+
+- [[forge/thoughts/делай то что считаешь правильным|делай то что считаешь правильным]]
+- [[forge/thoughts/важно то, чем занимаешься каждый день|важно то, чем занимаешься каждый день]]
+
+
 ## Немного про заметки
 
 Первый коммит в приватном репозитории: 2018-06-10T13:50:57.000+03:00
 
-<span><span data-tag-name="p" class="el-p"><p dir="auto">Прошло 2369 дней со старта заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 6349 заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Проставлено 129 тегов. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 20864 задач. </p></span></span>
+<span><span data-tag-name="p" class="el-p"><p dir="auto">Прошло 2423 дней со старта заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 6508 заметок. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Проставлено 135 тегов. </p></span></span><span><span data-tag-name="p" class="el-p"><p dir="auto">Создано 21589 задач. </p></span></span>
