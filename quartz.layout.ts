@@ -31,7 +31,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.TagList(),
   ],
   left: [
-    Component.DesktopOnly(Component.TableOfContents()),
+    Component.Explorer(),
   ],
   right: [
     Component.Backlinks(),
@@ -42,10 +42,7 @@ export const defaultContentPageLayout: PageLayout = {
 export const defaultListPageLayout: PageLayout = {
   beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
   left: [
-    Component.DesktopOnly(Component.RecentNotes({
-      limit: 5,
-      showTags: false,
-    })),
+    Component.Explorer(),
   ],
   right: [],
 }
