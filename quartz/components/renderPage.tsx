@@ -56,6 +56,7 @@ export function pageResources(
       },
       ...staticResources.js,
     ],
+    additionalHead: staticResources.additionalHead,
   }
 
   if (fileData.hasMermaidDiagram) {
