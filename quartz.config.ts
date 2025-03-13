@@ -17,7 +17,6 @@ const config: QuartzConfig = {
     baseUrl: "chernov.wiki",
     ignorePatterns: ["private", ".obsidian"],
     defaultDateType: "modified",
-    generateSocialImages: true,
     theme: {
       fontOrigin: "googleFonts",
       cdnCaching: true,
@@ -86,6 +85,7 @@ const config: QuartzConfig = {
       Plugin.Assets(),
       Plugin.Static(),
       Plugin.NotFoundPage(),
+      Plugin.CustomOgImages(),
     ],
   },
 }
