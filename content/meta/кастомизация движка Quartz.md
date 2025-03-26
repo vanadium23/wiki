@@ -1,40 +1,16 @@
 ---
-{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2024-12-03T16:12:51+03:00","tags":["status/infinite"],"permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2025-03-26T11:50:18+03:00","tags":["status/infinite"],"permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
 ---
 
 
 Здесь будет более менее живая заметка о том, как происходит переход. Идея была честно скопирована с западного примера: https://quartz.eilleeenz.com/Quartz-customization-log
 
-## Что хочется поменять
+### Отображение дат
 
-Функционально:
-- [ ] сделать кастомный crawler, который поменяет Openbox url на урлы до [[openbox/цифровой архив|цифрового архива]].
-- [x] добавить Recent notes слева на Desktop
-- [x] добавить чтобы у заметки была дата создания и дата обновления
-- [x] добавить navbar с дизайном с vanadium23.me
-- [x] на десктопе сделать более широкий контент
-- [x] переверстать страницу одной заметки на более минималистичную
-- [x] накатить новый дизайн на classless
+Решил стащить идею (и буду дальше копировать скорее всего) с gwern.net. У него клёвые заголовки с обоснованием всякого, скриншот для примера:
+![Pasted image 20250326114821.png](/images/Pasted%20image%2020250326114821.png)
 
-Проблемы:
-- [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
-- [x] из-за наличия permalinks у меня не сломались старые пути, но новые выглядят как `openbox/Openbox` - необходимо придумать как от дубля избавиться
-    - решилось тем, что openbox в архив, а quartz натянут на блог 
-- [x] починить slugify в [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]], который создаёт бесконечный редирект на quartz
-    - решилось тем, что отключил slugify в настройках [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
-- [x] починить preview для ссылок (opengraph метаданные)
-    - [x] поменять картинку
-- [x] починить загрузку картинок через digital garden
-- [x] разобраться с бесконечным permalink, если совпадает с slug
-    - [x] закинуть PR с фиксом бесконечных редиректов в upstream
-        - [ссылка на PR](https://github.com/jackyzha0/quartz/pull/1631)
-- [x] починить шрифт в картинках на превьюшках
-    - Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
-    - пока сделал какой-то костыль [src](https://github.com/vanadium23/wiki/commit/336e09cfda0c7ba1ab4f50a21c401a379b7e33cb)
-- [x] неправильно работает загрузка и diff в publication center [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
-    - оказалось логика дублируется, поэтому пришлось опять костылить [src](https://github.com/vanadium23/obsidian-digital-garden/commit/ed6fcabf3d44d2ff510ef58b094b4fc554a9e2eb) 
-
-## Добавлено в quartz
+Отсюда мы видим даты, статус, два важных тега - уверенность и важность; а дальше набор кнопок для цифрового сада. Сейчас решил сесть и пока взять идею с датами. Тем самым, можно будет отслеживать что какие-то заметки живут. Вечно обновляемые у меня и так прячутся под #status/infinite , и теперь за этим можно будет следить. [коммит](https://github.com/vanadium23/wiki/commit/196681dc82cdfbe0ddcb3e802409e013e1d1750a). 
 
 ### Подтягивание дат
 
@@ -71,3 +47,32 @@ Header уже сделан неправильно, но вот nav точно д
 - компоненты - это то из чего состоит страница.
     - сама страница разбивается на 5 блока: сверху, контент, справа и футер
     - компонентами являются: метаданные, table of content, локальный граф, и [много чего ещё](https://quartz.jzhao.xyz/tags/component)
+
+## Что хочется поменять
+
+Функционально:
+- [ ] сделать кастомный crawler, который поменяет Openbox url на урлы до [[openbox/цифровой архив|цифрового архива]].
+- [x] добавить Recent notes слева на Desktop
+- [x] добавить чтобы у заметки была дата создания и дата обновления
+- [x] добавить navbar с дизайном с vanadium23.me
+- [x] на десктопе сделать более широкий контент
+- [x] переверстать страницу одной заметки на более минималистичную
+- [x] накатить новый дизайн на classless
+
+Проблемы:
+- [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+- [x] из-за наличия permalinks у меня не сломались старые пути, но новые выглядят как `openbox/Openbox` - необходимо придумать как от дубля избавиться
+    - решилось тем, что openbox в архив, а quartz натянут на блог 
+- [x] починить slugify в [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]], который создаёт бесконечный редирект на quartz
+    - решилось тем, что отключил slugify в настройках [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+- [x] починить preview для ссылок (opengraph метаданные)
+    - [x] поменять картинку
+- [x] починить загрузку картинок через digital garden
+- [x] разобраться с бесконечным permalink, если совпадает с slug
+    - [x] закинуть PR с фиксом бесконечных редиректов в upstream
+        - [ссылка на PR](https://github.com/jackyzha0/quartz/pull/1631)
+- [x] починить шрифт в картинках на превьюшках
+    - Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
+    - пока сделал какой-то костыль [src](https://github.com/vanadium23/wiki/commit/336e09cfda0c7ba1ab4f50a21c401a379b7e33cb)
+- [x] неправильно работает загрузка и diff в publication center [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+    - оказалось логика дублируется, поэтому пришлось опять костылить [src](https://github.com/vanadium23/obsidian-digital-garden/commit/ed6fcabf3d44d2ff510ef58b094b4fc554a9e2eb) 
