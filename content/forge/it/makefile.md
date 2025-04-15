@@ -31,7 +31,7 @@ help : Makefile ## show list of available commands.
 	@echo    "+--------------------+"
 	@echo    "| AVAILABLE COMMANDS |"
 	@echo -e "+--------------------+\n"
-	@grep -E '^[a-zA-Z_-]+\s+:.*?## .*$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(YELLOW)make %-20s$(RESET) %s\n", $1, $2}'
+	@grep -E '^[a-zA-Z_-]+\s+?:.*?## .*$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(YELLOW)make %-20s$(RESET) %s\n", $1, $2}'
 
 ```
 
