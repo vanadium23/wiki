@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2023-02-09T21:47:57+04:00","modified_at":"2025-01-28T16:59:54+03:00","permalink":"/forge/it/makefile/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2023-02-09T21:47:57+04:00","modified_at":"2025-04-15T12:13:36+03:00","permalink":"/forge/it/makefile/","dgPassFrontmatter":true}
 ---
 
 GNU Make - программа для генерации программ из исходников. Изначально было заточено под C, но потом стали использовать и как файлик под скрипты.
@@ -20,14 +20,19 @@ arg ?= "default"
 Команда, чтобы вывести другие команды плюс сразу напоминаем про `.PHONY`:
 
 ```
-.PHONY: help
+.DEFAULT_GOAL := help
 
-## help: show list of available commands.
-help : Makefile
-	@echo "+--------------------+"
-	@echo "| AVAILABLE COMMANDS |"
-	@echo "+--------------------+\n"
-	@cat Makefile | grep "##" | sed -n 's/^## /make /p' | column -t -s ':' && echo ""
+# Colors for terminal output
+YELLOW := \033[33m
+RESET := \033[0m
+
+.PHONY: help
+help : Makefile ## show list of available commands.
+	@echo    "+--------------------+"
+	@echo    "| AVAILABLE COMMANDS |"
+	@echo -e "+--------------------+\n"
+	@grep -E '^[a-zA-Z_-]+\s+:.*?## .*$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "$(YELLOW)make %-20s$(RESET) %s\n", $1, $2}'
+
 ```
 
 Забираем environment из `.env` если он есть:
