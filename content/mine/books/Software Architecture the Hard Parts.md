@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"up":"[[Books]]","title":"Software Architecture  the Hard Parts","category":"book","status":"Reviewing","tags":["source/book"],"rating":3,"date":"2024-07-18","modified_at":"2025-04-27T16:27:57+03:00","aliases":"Software Architecture  the Hard Parts","permalink":"/mine/books/Software Architecture the Hard Parts/","dgPassFrontmatter":true}
+{"dg-publish":true,"up":"[[Books]]","title":"Software Architecture  the Hard Parts","category":"book","status":"Completed","tags":["source/book"],"rating":3,"date":"2024-07-18","modified_at":"2025-04-27T16:28:40+03:00","aliases":"Software Architecture  the Hard Parts","permalink":"/mine/books/Software Architecture the Hard Parts/","dgPassFrontmatter":true}
 ---
 
 
