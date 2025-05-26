@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"date":"2023-02-09T21:47:57+04:00","modified_at":"2025-04-15T12:13:36+03:00","permalink":"/forge/it/makefile/","dgPassFrontmatter":true}
+{"dg-publish":true,"date":"2023-02-09T21:47:57+04:00","modified_at":"2025-05-26T11:25:27+03:00","permalink":"/forge/it/makefile/","dgPassFrontmatter":true}
 ---
 
 GNU Make - программа для генерации программ из исходников. Изначально было заточено под C, но потом стали использовать и как файлик под скрипты.
@@ -35,11 +35,14 @@ help : Makefile ## show list of available commands.
 
 ```
 
-Забираем environment из `.env` если он есть:
+Забираем environment из `.env` если он есть, и имеем `.env.example`:
 ```
 ifneq (,$(wildcard ./.env))
     include .env
     export
+else
+	include .env.example
+	export
 endif
 ```
 ## Python
