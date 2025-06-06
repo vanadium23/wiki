@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"tags":["status/writing"],"date":"2025-04-08T15:37:29+03:00","modified_at":"2025-04-10T11:33:44+03:00","permalink":"/forge/it/load balancing/","dgPassFrontmatter":true}
+{"dg-publish":true,"tags":["status/completed","review/needed"],"date":"2025-04-08T15:37:29+03:00","modified_at":"2025-06-06T13:55:17+03:00","permalink":"/forge/it/load balancing/","dgPassFrontmatter":true}
 ---
 
 
