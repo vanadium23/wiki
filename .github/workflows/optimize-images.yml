@@ -14,12 +14,12 @@ jobs:
   optimize-images:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2 
+      - uses: actions/checkout@v4 
       - name: Optimize images
         id: optimize-images
         uses: Doist/optimize-images-action@v2
       - name: Create pull request
-        uses: peter-evans/create-pull-request@v3
+        uses: peter-evans/create-pull-request@v7
         with:
           commit-message: "Optimize images (lossless)"
           delete-branch: true
