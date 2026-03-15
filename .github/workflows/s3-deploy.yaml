@@ -6,6 +6,7 @@
 #   S3_BUCKET       - Bucket name
 #   S3_ACCESS_KEY_ID    - Access key
 #   S3_SECRET_ACCESS_KEY - Secret key
+#   BASE_URL        - baseUrl for Quartz (e.g. chernov.wiki)
 #
 # Sync uses --delete to remove remote files that no longer exist locally.
 name: Deploy to S3
@@ -31,6 +32,13 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Set baseUrl from variable
+        env:
+          BASE_URL: ${{ vars.S3_BASE_URL }}
+        run: |
+          sed -i 's/baseUrl: ".*"/baseUrl: "'"$BASE_URL"'"/' quartz.config.ts
+          grep 'baseUrl' quartz.config.ts
 
       - name: Build Quartz
         run: npx quartz build
