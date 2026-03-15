@@ -1,14 +1,32 @@
 ---
-{"dg-publish":true,"date":"2024-11-18T13:58:04+03:00","modified_at":"2025-03-26T11:50:18+03:00","tags":["status/infinite"],"permalink":"/meta/кастомизация движка Quartz/","dgPassFrontmatter":true}
+share: true
+date: 2024-11-18T13:58:04+03:00
+modified_at: 2026-03-16T00:07:35+03:00
+tags:
+  - status_infinite
 ---
-
 
 Здесь будет более менее живая заметка о том, как происходит переход. Идея была честно скопирована с западного примера: https://quartz.eilleeenz.com/Quartz-customization-log
 
+### Ru S3 Mirror
+
+Так как что Github Pages, что Cloudflare Pages делают мне голово, то пришлось пойти на радикальные меры и просто выложить на S3 бакете в timeweb.cloud. Надеюсь, что так будет удобнее.
+
+Итоговая ссылка сейчас https://chernov-wiki.website.twcstorage.ru/, не очень красивая, зато рабочая.
+
+### Layout 2026-03-16
+
+Убрал шапку, которая казалось мне нужной, оставил поиск слева всегда, всё ещё выглядит неряшливо, но лучше чем было. 
+
+Стало:
+![[../img/Pasted image 20260316000335.png|Pasted image 20260316000335.png]]
+
+Было:
+![[../img/Pasted image 20260316000236.png|Pasted image 20260316000236.png]]
 ### Отображение дат
 
 Решил стащить идею (и буду дальше копировать скорее всего) с gwern.net. У него клёвые заголовки с обоснованием всякого, скриншот для примера:
-![Pasted image 20250326114821.png](/images/Pasted%20image%2020250326114821.png)
+![[../img/Pasted image 20250326114821.png|Pasted image 20250326114821.png]]
 
 Отсюда мы видим даты, статус, два важных тега - уверенность и важность; а дальше набор кнопок для цифрового сада. Сейчас решил сесть и пока взять идею с датами. Тем самым, можно будет отслеживать что какие-то заметки живут. Вечно обновляемые у меня и так прячутся под #status/infinite , и теперь за этим можно будет следить. [коммит](https://github.com/vanadium23/wiki/commit/196681dc82cdfbe0ddcb3e802409e013e1d1750a). 
 
@@ -41,7 +59,7 @@ Header уже сделан неправильно, но вот nav точно д
 
 В этот раз всё сделано с помощью Typescript и довольно сильно напоминает [eleventy](https://www.11ty.dev/). И стоит посмотреть на архитектуру:
 - сам quartz из себя представляет pipeline применённых [плагинов](https://quartz.jzhao.xyz/configuration#plugins), которые разделяются на три вида:
-    - transformers - меняют контент внутри заметки ([[openbox/regexp|регулярки]] на стероидах) 
+    - transformers - меняют контент внутри заметки ([[regexp|регулярки]] на стероидах) 
     - filters - фильтруют какие файлы не надо публиковать
     - emitters - преобразуют заметку + метаданные в финальный вид (html для сайта, xml для RSS, json для графа)
 - компоненты - это то из чего состоит страница.
@@ -51,7 +69,7 @@ Header уже сделан неправильно, но вот nav точно д
 ## Что хочется поменять
 
 Функционально:
-- [ ] сделать кастомный crawler, который поменяет Openbox url на урлы до [[openbox/цифровой архив|цифрового архива]].
+- [ ] сделать кастомный crawler, который поменяет Openbox url на урлы до [[цифровой архив|цифрового архива]].
 - [x] добавить Recent notes слева на Desktop
 - [x] добавить чтобы у заметки была дата создания и дата обновления
 - [x] добавить navbar с дизайном с vanadium23.me
@@ -60,11 +78,11 @@ Header уже сделан неправильно, но вот nav точно д
 - [x] накатить новый дизайн на classless
 
 Проблемы:
-- [ ] не работает загрузка excalidraw через [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+- [ ] не работает загрузка excalidraw через [[obsidian-digital-garden|obsidian-digital-garden]]
 - [x] из-за наличия permalinks у меня не сломались старые пути, но новые выглядят как `openbox/Openbox` - необходимо придумать как от дубля избавиться
     - решилось тем, что openbox в архив, а quartz натянут на блог 
-- [x] починить slugify в [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]], который создаёт бесконечный редирект на quartz
-    - решилось тем, что отключил slugify в настройках [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+- [x] починить slugify в [[obsidian-digital-garden|obsidian-digital-garden]], который создаёт бесконечный редирект на quartz
+    - решилось тем, что отключил slugify в настройках [[obsidian-digital-garden|obsidian-digital-garden]]
 - [x] починить preview для ссылок (opengraph метаданные)
     - [x] поменять картинку
 - [x] починить загрузку картинок через digital garden
@@ -74,5 +92,5 @@ Header уже сделан неправильно, но вот nav точно д
 - [x] починить шрифт в картинках на превьюшках
     - Quartz по умолчанию качает ttf с google fonts api, который не имеет маппинга для кириллицы
     - пока сделал какой-то костыль [src](https://github.com/vanadium23/wiki/commit/336e09cfda0c7ba1ab4f50a21c401a379b7e33cb)
-- [x] неправильно работает загрузка и diff в publication center [[openbox/software/obsidian-digital-garden|obsidian-digital-garden]]
+- [x] неправильно работает загрузка и diff в publication center [[obsidian-digital-garden|obsidian-digital-garden]]
     - оказалось логика дублируется, поэтому пришлось опять костылить [src](https://github.com/vanadium23/obsidian-digital-garden/commit/ed6fcabf3d44d2ff510ef58b094b4fc554a9e2eb) 
