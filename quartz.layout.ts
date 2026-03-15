@@ -5,12 +5,11 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   navbar: [
-    Component.Darkmode(),
-    Component.Search(),
   ],
-  header: [],
+  header: [
+  ],
   afterBody: [
-    // Component.Backlinks()
+    Component.Backlinks(),
   ],
   footer: Component.Footer({
     links: {
@@ -25,19 +24,25 @@ export const sharedPageComponents: SharedLayout = {
 // components for pages that display a single page (e.g. a single note)
 export const defaultContentPageLayout: PageLayout = {
   beforeBody: [
-    Component.ConditionalRender({
-      component: Component.Breadcrumbs(),
-      condition: (page) => page.fileData.slug !== "index",
-    }),
     Component.ArticleTitle(),
     Component.ContentMeta(),
     Component.TagList(),
   ],
   left: [
+    Component.PageTitle(),
+    Component.MobileOnly(Component.Spacer()),
     Component.Explorer(),
   ],
   right: [
-    Component.Backlinks(),
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        }
+      ],
+    }),
+    // Component.Backlinks(),
   ]
 }
 
@@ -47,5 +52,14 @@ export const defaultListPageLayout: PageLayout = {
   left: [
     Component.Explorer(),
   ],
-  right: [],
+  right: [
+    Component.Flex({
+      components: [
+        {
+          Component: Component.Search(),
+          grow: true,
+        }
+      ],
+    }),
+  ],
 }
