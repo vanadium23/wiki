@@ -41,10 +41,14 @@ const defaultOptions: Options = {
 
 function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string {
   const base = cfg.baseUrl ?? ""
-  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<url>
-    <loc>https://${joinSegments(base, encodeURI(slug))}</loc>
+  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => {
+    const path = joinSegments(base, encodeURI(slug))
+    const url = `https://${path}${path && !path.endsWith("/") ? "/" : ""}`
+    return `<url>
+    <loc>${url}</loc>
     ${content.date && `<lastmod>${content.date.toISOString()}</lastmod>`}
   </url>`
+  }
   const urls = Array.from(idx)
     .map(([slug, content]) => createURLEntry(simplifySlug(slug), content))
     .join("")
@@ -54,13 +58,17 @@ function generateSiteMap(cfg: GlobalConfiguration, idx: ContentIndexMap): string
 function generateRSSFeed(cfg: GlobalConfiguration, idx: ContentIndexMap, limit?: number): string {
   const base = cfg.baseUrl ?? ""
 
-  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => `<item>
+  const createURLEntry = (slug: SimpleSlug, content: ContentDetails): string => {
+    const path = joinSegments(base, encodeURI(slug))
+    const url = `https://${path}${path && !path.endsWith("/") ? "/" : ""}`
+    return `<item>
     <title>${escapeHTML(content.title)}</title>
-    <link>https://${joinSegments(base, encodeURI(slug))}</link>
-    <guid>https://${joinSegments(base, encodeURI(slug))}</guid>
+    <link>${url}</link>
+    <guid>${url}</guid>
     <description><![CDATA[ ${content.richContent ?? content.description} ]]></description>
     <pubDate>${content.date?.toUTCString()}</pubDate>
   </item>`
+  }
 
   const items = Array.from(idx)
     .sort(([_, f1], [__, f2]) => {

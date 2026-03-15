@@ -84,6 +84,13 @@ export function slugifyFilePath(fp: FilePath, excludeExt?: boolean): FullSlug {
     slug = slug.replace(/_index$/, "index")
   }
 
+  // Always use folder/index.html format: convert single-file slugs to folder/index
+  // e.g. "file" -> "file/index", "folder/file" -> "folder/file/index"
+  // Keep "index" (root) and "folder/index" (folder index) as-is
+  if (ext === "" && slug !== "index" && !endsWith(slug, "index")) {
+    slug = slug + "/index"
+  }
+
   return (slug + ext) as FullSlug
 }
 
@@ -103,7 +110,12 @@ export function transformInternalLink(link: string): RelativeURL {
   // manually add ext here as we want to not strip 'index' if it has an extension
   const simpleSlug = simplifySlug(slugifyFilePath(fp as FilePath))
   const joined = joinSegments(stripSlashes(prefix), stripSlashes(simpleSlug))
-  const trail = folderPath ? "/" : ""
+  // Always add trailing slash for page links (all pages use folder/index.html format)
+  // Skip trailing slash for asset links (e.g. .pdf, .png) and root/empty links
+  const ext = getFileExtension(fplike)
+  const isAsset = ext !== undefined && ![".md", ".html"].includes(ext)
+  const isRootOrEmpty = !fplike || fplike === "." || fplike === "index"
+  const trail = isAsset || isRootOrEmpty ? (fplike === "./" ? "/" : "") : "/"
   const res = (_addRelativeToStart(joined) + trail + anchor) as RelativeURL
   return res
 }
@@ -230,17 +242,23 @@ export function transformLink(src: FullSlug, target: string, opts: TransformOpti
   let targetSlug = transformInternalLink(target)
 
   if (opts.strategy === "relative") {
+    // When linking to root, return path from current page to root with trailing slash
+    if (targetSlug === "." || targetSlug === "./") {
+      return (pathToRoot(src) + "/") as RelativeURL
+    }
     return targetSlug as RelativeURL
   } else {
-    const folderTail = isFolderPath(targetSlug) ? "/" : ""
     const canonicalSlug = stripSlashes(targetSlug.slice(".".length))
+    // Add trailing slash for folder paths and root (all pages use folder/index.html format)
+    const folderTail = isFolderPath(targetSlug) || canonicalSlug === "" ? "/" : ""
     let [targetCanonical, targetAnchor] = splitAnchor(canonicalSlug)
 
     if (opts.strategy === "shortest") {
       // if the file name is unique, then it's just the filename
       const matchingFileNames = opts.allSlugs.filter((slug) => {
         const parts = slug.split("/")
-        const fileName = parts.at(-1)
+        // for folder/index format, the "file" name is the segment before "index"
+        const fileName = parts.at(-1) === "index" ? parts.at(-2) : parts.at(-1)
         return targetCanonical === fileName
       })
 

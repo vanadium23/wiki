@@ -38,7 +38,7 @@ function computeTagInfo(
       return [
         tag,
         defaultProcessedContent({
-          slug: joinSegments("tags", tag) as FullSlug,
+          slug: joinSegments("tags", tag, "index") as FullSlug,
           frontmatter: { title, tags: [] },
         }),
       ]
@@ -49,7 +49,7 @@ function computeTagInfo(
   for (const [tree, file] of content) {
     const slug = file.data.slug!
     if (slug.startsWith("tags/")) {
-      const tag = slug.slice("tags/".length)
+      const tag = slug.slice("tags/".length).replace(/\/index$/, "")
       if (tags.has(tag)) {
         tagDescriptions[tag] = [tree, file]
         if (file.data.frontmatter?.title === tag) {
@@ -70,7 +70,7 @@ async function processTagPage(
   opts: FullPageLayout,
   resources: StaticResources,
 ) {
-  const slug = joinSegments("tags", tag) as FullSlug
+  const slug = joinSegments("tags", tag, "index") as FullSlug
   const [tree, file] = tagContent
   const cfg = ctx.cfg.configuration
   const externalResources = pageResources(pathToRoot(slug), resources)
@@ -142,7 +142,7 @@ export const TagPage: QuartzEmitterPlugin<Partial<TagPageOptions>> = (userOpts) 
 
         // If it's a tag page itself that changed
         if (slug.startsWith("tags/")) {
-          const tag = slug.slice("tags/".length)
+          const tag = slug.slice("tags/".length).replace(/\/index$/, "")
           affectedTags.add(tag)
         }
 

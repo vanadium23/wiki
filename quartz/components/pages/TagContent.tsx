@@ -29,7 +29,8 @@ export default ((opts?: Partial<TagContentOptions>) => {
       throw new Error(`Component "TagContent" tried to render a non-tag page: ${slug}`)
     }
 
-    const tag = simplifySlug(slug.slice("tags/".length) as FullSlug)
+    const rawTag = slug.slice("tags/".length).replace(/\/index$/, "") || "index"
+    const tag = rawTag === "index" ? "/" : rawTag
     const allPagesWithTag = (tag: string) =>
       allFiles.filter((file) =>
         (file.frontmatter?.tags ?? []).flatMap(getAllSegmentPrefixes).includes(tag),
@@ -66,7 +67,9 @@ export default ((opts?: Partial<TagContentOptions>) => {
                 allFiles: pages,
               }
 
-              const contentPage = allFiles.filter((file) => file.slug === `tags/${tag}`).at(0)
+              const contentPage = allFiles.filter(
+                (file) => file.slug === `tags/${tag}` || file.slug === `tags/${tag}/index`,
+              ).at(0)
 
               const root = contentPage?.htmlAst
               const content =
@@ -74,7 +77,7 @@ export default ((opts?: Partial<TagContentOptions>) => {
                   ? contentPage?.description
                   : htmlToJsx(contentPage.filePath!, root)
 
-              const tagListingPage = `/tags/${tag}` as FullSlug
+              const tagListingPage = `tags/${tag}/index` as FullSlug
               const href = resolveRelative(fileData.slug!, tagListingPage)
 
               return (
