@@ -3,9 +3,24 @@
 @use "./callouts.scss";
 
 // put your custom CSS here!
+@font-face {
+  font-family: "Exo 2";
+  src: url("/static/fonts/Exo2-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Exo 2";
+  src: url("/static/fonts/Exo2-Bold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
-  --font-family: "JetBrains Mono", monospace;
+  --font-family: "Exo 2", ui-monospace;
   --line-height: 1.20rem;
   --border-thickness: 2px;
   --text-color: #000;

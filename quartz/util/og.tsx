@@ -4,7 +4,7 @@ import { GlobalConfiguration } from "../cfg"
 import { QuartzPluginData } from "../plugins/vfile"
 import { JSXInternal } from "preact/src/jsx"
 import { FontSpecification, getFontSpecificationName, ThemeKey } from "./theme"
-import { readFileSync } from "node:fs"
+import { read, readFileSync } from "node:fs"
 import path from "path"
 import { QUARTZ } from "./path"
 import { formatDate, getDate } from "../components/Date"
@@ -12,57 +12,22 @@ import readingTime from "reading-time"
 import { i18n } from "../i18n"
 import { styleText } from "util"
 
-const defaultHeaderWeight = [700]
-const defaultBodyWeight = [400]
 
 export async function getSatoriFonts(headerFont: FontSpecification, bodyFont: FontSpecification) {
-  // Get all weights for header and body fonts
-  const headerWeights: FontWeight[] = (
-    typeof headerFont === "string"
-      ? defaultHeaderWeight
-      : (headerFont.weights ?? defaultHeaderWeight)
-  ) as FontWeight[]
-  const bodyWeights: FontWeight[] = (
-    typeof bodyFont === "string" ? defaultBodyWeight : (bodyFont.weights ?? defaultBodyWeight)
-  ) as FontWeight[]
+  const headerWeight = 700 as FontWeight
+  const bodyWeight = 400 as FontWeight
 
-  const headerFontName = typeof headerFont === "string" ? headerFont : headerFont.name
-  const bodyFontName = typeof bodyFont === "string" ? bodyFont : bodyFont.name
+  // Fetch fonts
+  // const headerFont = await fetchTtf(headerFontName, headerWeight)
+  // const bodyFont = await fetchTtf(bodyFontName, bodyWeight)
+  const headerFontExo = readFileSync(import.meta.dirname + '/../static/fonts/Exo2-Bold.otf')
+  const bodyFontExo = readFileSync(import.meta.dirname + '/../static/fonts/Exo2-Regular.otf')
 
-  // Fetch fonts for all weights and convert to satori format in one go
-  const headerFontPromises = headerWeights.map(async (weight) => {
-    const data = await fetchTtf(headerFontName, weight)
-    if (!data) return null
-    return {
-      name: headerFontName,
-      data,
-      weight,
-      style: "normal" as const,
-    }
-  })
-
-  const bodyFontPromises = bodyWeights.map(async (weight) => {
-    const data = await fetchTtf(bodyFontName, weight)
-    if (!data) return null
-    return {
-      name: bodyFontName,
-      data,
-      weight,
-      style: "normal" as const,
-    }
-  })
-
-  const [headerFonts, bodyFonts] = await Promise.all([
-    Promise.all(headerFontPromises),
-    Promise.all(bodyFontPromises),
-  ])
-
-  // Filter out any failed fetches and combine header and body fonts
+  // Convert fonts to satori font format and return
   const fonts: SatoriOptions["fonts"] = [
-    ...headerFonts.filter((font): font is NonNullable<typeof font> => font !== null),
-    ...bodyFonts.filter((font): font is NonNullable<typeof font> => font !== null),
+    { name: "Exo 2", data: headerFontExo, weight: headerWeight, style: "normal" },
+    { name: "Exo 2", data: bodyFontExo, weight: bodyWeight, style: "normal" },
   ]
-
   return fonts
 }
 
