@@ -5,7 +5,7 @@ services:
       - ingress
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.wiki.rule=Host(`chernov.wiki`)"
+      - "traefik.http.routers.wiki.rule=Host(`docs.chernov.wiki`)"
       - "traefik.http.routers.wiki.entrypoints=websecure"
       - "traefik.http.routers.wiki.tls=true"
       - "traefik.http.routers.wiki.tls.certresolver=letsencrypt"
