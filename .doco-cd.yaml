@@ -1,3 +1,4 @@
 name: chernowiki
+force_recreate: true
 build_opts:
   no_cache: true
