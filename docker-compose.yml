@@ -4,10 +4,10 @@ services:
     working_dir: /usr/src/app
     volumes:
       - ./content:/usr/src/app/content
-      - public_data:/usr/src/app/public
-    command: npx quartz build --watch
+      - public_data:/usr/src/app/public_output
+    command: npx quartz build --watch -d public_output/site
     healthcheck:
-      test: ["CMD", "test", "-f", "/usr/src/app/public/index.html"]
+      test: ["CMD", "test", "-f", "/usr/src/app/public_output/site/index.html"]
       interval: 2s
       timeout: 5s
       retries: 30
