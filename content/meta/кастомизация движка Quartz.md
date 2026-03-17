@@ -3,7 +3,7 @@ share: true
 date: 2024-11-18T13:58:04+03:00
 modified_at: 2026-03-16T00:07:35+03:00
 tags:
-  - status_infinite
+  - status/infinite
 ---
 
 Здесь будет более менее живая заметка о том, как происходит переход. Идея была честно скопирована с западного примера: https://quartz.eilleeenz.com/Quartz-customization-log
