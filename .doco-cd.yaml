@@ -1,1 +1,4 @@
 name: chernowiki
+build_opts:
+  force_image_pull: true
+  no_cache: true
