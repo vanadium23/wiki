@@ -43,10 +43,7 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
     if (this.isFolder) {
       return joinSegments(path, "index") as FullSlug
     }
-    // Use data.slug for leaves when available (preserves folder/index.html format)
-    if (this.data?.slug) {
-      return this.data.slug as FullSlug
-    }
+
     return path
   }
 
@@ -74,10 +71,7 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
       if (segment === "index") {
         this.data ??= file
       } else {
-        // Find existing child (e.g. folder) or create new, set data for folder index
-        const child =
-          this.children.find((c) => c.slugSegment === segment) ?? this.makeChild(path, undefined)
-        child.data ??= file
+        this.makeChild(path, file)
       }
     } else if (path.length > 1) {
       // recursive case, we are not at the end of the path
@@ -92,20 +86,7 @@ export class FileTrieNode<T extends FileTrieData = ContentDetails> {
 
   // Add new file to trie
   add(file: T) {
-    let segments = file.slug.split("/")
-    // Strip trailing "index" for folder/index.html format - but NOT for actual folder index files
-    // folder/index.md -> keep ["folder", "index"] (folder index page)
-    // file.md -> "file/index" -> ["file"] (single file)
-    // folder/file.md -> "folder/file/index" -> ["folder", "file"]
-    const isFolderIndex = file.filePath.endsWith("/index.md")
-    if (
-      segments.length > 1 &&
-      segments[segments.length - 1] === "index" &&
-      !isFolderIndex
-    ) {
-      segments = segments.slice(0, -1)
-    }
-    this.insert(segments, file)
+    this.insert(file.slug.split("/"), file)
   }
 
   findNode(path: string[]): FileTrieNode<T> | undefined {

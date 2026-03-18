@@ -132,21 +132,11 @@ export const FolderPage: QuartzEmitterPlugin<Partial<FolderPageOptions>> = (user
       const allFiles = content.map((c) => c[1].data)
       const cfg = ctx.cfg.configuration
 
-      // Exclude folders that are single-file content (e.g. "folder/file" from "folder/file.md")
-      // Those become "folder/file/index.html" and would conflict with folder listing
-      const contentLeafFolders = new Set(
-        allFiles
-          .filter((f) => f.relativePath && !f.relativePath.endsWith("/index.md"))
-          .map((f) => stripSlashes(simplifySlug(f.slug!))),
-      )
       const folders: Set<SimpleSlug> = new Set(
         allFiles.flatMap((data) => {
           return data.slug
             ? _getFolders(data.slug).filter(
-                (folderName) =>
-                  folderName !== "." &&
-                  folderName !== "tags" &&
-                  !contentLeafFolders.has(folderName),
+                (folderName) => folderName !== "." && folderName !== "tags",
               )
             : []
         }),

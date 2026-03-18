@@ -3,7 +3,6 @@ import { QuartzEmitterPlugin } from "../types"
 import { QuartzComponentProps } from "../../components/types"
 import HeaderConstructor from "../../components/Header"
 import BodyConstructor from "../../components/Body"
-import NavbarConstructor from "../../components/Navbar"
 import { pageResources, renderPage } from "../../components/renderPage"
 import { FullPageLayout } from "../../cfg"
 import { pathToRoot } from "../../util/path"
@@ -54,18 +53,15 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
     ...userOpts,
   }
 
-  const { head: Head, navbar, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
+  const { head: Head, header, beforeBody, pageBody, afterBody, left, right, footer: Footer } = opts
   const Header = HeaderConstructor()
   const Body = BodyConstructor()
-  const Navbar = NavbarConstructor()
 
   return {
     name: "ContentPage",
     getQuartzComponents() {
       return [
         Head,
-        Navbar,
-        ...navbar,
         Header,
         Body,
         ...header,
@@ -87,10 +83,8 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
           containsIndex = true
         }
 
-        // Skip folder index pages (folder/index.md) - processed by FolderPage emitter
-        // Skip tag pages
-        const isFolderIndex = file.data.relativePath?.endsWith("/index.md") ?? false
-        if (isFolderIndex || slug.startsWith("tags/")) continue
+        // only process home page, non-tag pages, and non-index pages
+        if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
         yield processContent(ctx, tree, file.data, allFiles, opts, resources)
       }
 
@@ -118,8 +112,7 @@ export const ContentPage: QuartzEmitterPlugin<Partial<FullPageLayout>> = (userOp
       for (const [tree, file] of content) {
         const slug = file.data.slug!
         if (!changedSlugs.has(slug)) continue
-        const isFolderIndex = file.data.relativePath?.endsWith("/index.md") ?? false
-        if (isFolderIndex || slug.startsWith("tags/")) continue
+        if (slug.endsWith("/index") || slug.startsWith("tags/")) continue
 
         yield processContent(ctx, tree, file.data, allFiles, opts, resources)
       }
