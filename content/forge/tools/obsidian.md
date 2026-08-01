@@ -6,6 +6,7 @@ tags:
   - topic/notes
   - topic/software
   - status/deprecated
+forged_from: []
 ---
 
 
@@ -24,3 +25,6 @@ tags:
 - [[obsidian-dataview|obsidian-dataview]]
 - [[obsidian-templater|obsidian-templater]]
 - [[obsidian-digital-garden|obsidian-digital-garden]]
+
+## Источники
+
