@@ -30,3 +30,21 @@ started_at: 2018-06-10T13:50:57+03:00
 Проставлено 212 тегов.
 
 Создано 27477 задач.
+
+```base
+filters:
+  and:
+    - '!file.path.endsWith("/index.md")'
+    - '!file.path.startsWith("tags/")'
+    - 'file.path != "index.md"'
+    - 'file.name != "404"'
+views:
+  - type: list
+    name: Недавние заметки
+    order:
+      - file.name
+    limit: 5
+    sort:
+      - property: file.modified
+        direction: DESC
+```
