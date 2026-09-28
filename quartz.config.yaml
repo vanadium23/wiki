@@ -144,10 +144,10 @@ plugins:
       position: right
       priority: 10
   - source: "@quartz-community/search"
-    enabled: false
+    enabled: true
     layout:
-      position: beforeBody
-      priority: 4
+      position: header
+      priority: 20
       group: toolbar
       groupOptions:
         grow: true
@@ -172,10 +172,10 @@ plugins:
       position: beforeBody
       priority: 30
   - source: "@quartz-community/page-title"
-    enabled: false
+    enabled: true
     layout:
-      position: beforeBody
-      priority: 2
+      position: header
+      priority: 10
   - source: "@quartz-community/darkmode"
     enabled: false
     layout:
@@ -265,7 +265,7 @@ plugins:
 layout:
   groups:
     toolbar:
-      priority: 3
+      priority: 20
       direction: row
       gap: 0.5rem
   byPageType:
