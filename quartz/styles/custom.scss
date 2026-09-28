@@ -258,3 +258,20 @@ article blockquote {
 .page[data-frame="full-width"] .page-header > header .search-bar {
   font-size: 0.85rem;
 }
+
+/* bases list-view: маркер «•» вместо сырого дефиса из плагина */
+.bases-list-property > .list-bullet {
+  font-size: 1em;
+}
+.bases-list-property > .list-bullet::after {
+  content: "•";
+}
+.bases-list-property > .list-bullet:has(+ .bases-rendered-value) {
+  visibility: hidden;
+  position: relative;
+}
+.bases-list-property > .list-bullet:has(+ .bases-rendered-value)::after {
+  visibility: visible;
+  position: absolute;
+  left: 0;
+}
