@@ -1,3 +1,167 @@
 @use "./variables.scss" as *;
 
 // put your custom CSS here!
+
+/* ===== TYPOGRAPHY ROUND (shared base) =====================================
+   Restored from v4 master: self-hosted IBM Plex Mono (quartz-fonts plugin
+   disabled in quartz.config.yaml — it injected Source Sans Pro), ink-on-
+   cream palette vars. Variant blocks below; switch = replace the marked
+   VARIANT block (source files in wiki-shots/variant-{a,b,c}.scss). ====== */
+
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/static/fonts/IBMPlexMono-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "IBM Plex Mono";
+  src: url("/static/fonts/IBMPlexMono-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --font-family: "IBM Plex Mono", ui-monospace, "Nimbus Mono", monospace;
+  --codeFont: "IBM Plex Mono", ui-monospace, monospace;
+  --text-color: #111;
+  --text-color-alt: #555;
+  --background-color: #fffef9;
+  --background-color-alt: #f0ede4;
+  --rule: 1px solid #111;
+}
+
+/* re-assert core element fonts (core rules live in @layer quartz-base;
+   unlayered rules here win the cascade) */
+body {
+  font-family: var(--font-family);
+  color: var(--text-color);
+  background: var(--background-color);
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family);
+}
+code, pre {
+  font-family: var(--codeFont);
+}
+
+/* ink links outside the article column too (master's final state):
+   breadcrumbs + backlinks + footer — sidebar/explorer untouched */
+.breadcrumb a,
+.backlinks a,
+footer a {
+  color: var(--text-color);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+.breadcrumb a:hover,
+.backlinks a:hover,
+footer a:hover {
+  background: var(--background-color-alt);
+}
+
+/* ===== VARIANT B «Ledger» — ACTIVE ===== (switch: replace this block) */
+/* ============================================================
+   VARIANT B — «Ledger» (гроссбух; плотнее, строже)
+   0.95rem тело, 40rem мера, линейки МЕЖДУ записями, буквица
+   чернильная (не бордовая), ноль цвета кроме чернил + одна
+   акцентная линия под h1.
+   ============================================================ */
+
+:root {
+  --measure: none;
+  --accent-red: #7a1423;
+}
+
+/* плотная книжка */
+body {
+  font-size: 0.95rem;
+}
+
+/* колонка чтения: без ограничения ширины — Иван попросил убрать (2026-09-28) */
+
+/* заголовок записи + единственная цветная линия */
+h1.article-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding-bottom: 0.35em;
+  border-bottom: 2px solid var(--accent-red);
+}
+
+/* секции — записи реестра, разделённые линейкой */
+h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  border-top: var(--rule);
+  padding-top: 0.6em;
+}
+
+/* плотнее абзацы */
+article p {
+  margin-bottom: 0.6rem;
+}
+
+/* ссылки: чернила + подчёркивание, подсветка-заливка на hover */
+article a,
+.markdown-preview-view a {
+  color: var(--text-color);
+  font-weight: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+a.internal,
+a.external {
+  border-bottom: none;
+  border-radius: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  color: var(--text-color);
+}
+article a:hover,
+a.internal:hover,
+a.external:hover {
+  background: var(--background-color-alt);
+}
+
+/* линейки между записями: во всю ширину, волосяные */
+hr {
+  border: none;
+  border-top: var(--rule);
+  height: 0;
+  width: 100%;
+  margin: 1.6rem 0;
+}
+
+/* цитата — двойная линейка слева */
+blockquote {
+  border-left: 3px double var(--text-color);
+}
+
+/* код/пре — квадратные */
+code,
+pre {
+  border-radius: 0;
+  background: var(--background-color-alt);
+}
+
+/* буквица — чернильная */
+.markdown-preview-view > p:first-of-type::first-letter,
+article.popover-hint > div > p:first-of-type::first-letter {
+  font-size: 2.6em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  padding-right: 0.08em;
+  color: var(--text-color);
+}
+
+/* чтение: межстрочный 1.5 (WCAG 1.4.12) */
+article p,
+article li,
+article blockquote {
+  line-height: 1.5;
+}
