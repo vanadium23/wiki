@@ -165,3 +165,25 @@ article li,
 article blockquote {
   line-height: 1.5;
 }
+
+/* ===== flat layout (component round 2b, 2026-09-28):
+   sidebars gone, logo/search/toc components disabled — bare article.
+   Flanks kept visually ("as if sidebars exist"); footer aligned to the
+   same column rhythm as the article. ===== */
+
+.page[data-frame="full-width"] > #quartz-body .center.full-width {
+  min-width: 0;
+  width: 100%;
+  max-width: clamp(600px, calc(100% - 40rem), 68.75rem);
+  margin-inline: auto;
+}
+
+/* футер — в ритме статьи. Внимание: база задаёт .center,footer{min-width:100%};
+   перебиваем с запасом специфичности */
+.page[data-frame="full-width"] > #quartz-body > footer,
+.page[data-frame="full-width"] > #quartz-body footer:where(footer) {
+  min-width: 0 !important;
+  width: 100%;
+  max-width: clamp(600px, calc(100% - 40rem), 68.75rem);
+  margin-inline: auto;
+}

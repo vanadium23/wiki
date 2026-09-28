@@ -71,11 +71,11 @@ plugins:
     enabled: true
     order: 40
   - source: "@quartz-community/table-of-contents"
-    enabled: true
+    enabled: false
     order: 50
     layout:
-      position: left
-      priority: 50
+      position: beforeBody
+      priority: 8
       display: desktop-only
   - source: "@quartz-community/crawl-links"
     enabled: true
@@ -144,10 +144,10 @@ plugins:
       position: right
       priority: 10
   - source: "@quartz-community/search"
-    enabled: true
+    enabled: false
     layout:
-      position: left
-      priority: 20
+      position: beforeBody
+      priority: 4
       group: toolbar
       groupOptions:
         grow: true
@@ -172,10 +172,10 @@ plugins:
       position: beforeBody
       priority: 30
   - source: "@quartz-community/page-title"
-    enabled: true
+    enabled: false
     layout:
-      position: left
-      priority: 10
+      position: beforeBody
+      priority: 2
   - source: "@quartz-community/darkmode"
     enabled: false
     layout:
@@ -265,7 +265,7 @@ plugins:
 layout:
   groups:
     toolbar:
-      priority: 35
+      priority: 3
       direction: row
       gap: 0.5rem
   byPageType:
@@ -274,16 +274,20 @@ layout:
         beforeBody: []
         left: []
         right: []
-    content: {}
+      template: full-width
+    content:
+      template: full-width
     folder:
       exclude:
         - reader-mode
       positions:
         right: []
+      template: full-width
     tag:
       exclude:
         - reader-mode
       positions:
         right: []
+      template: full-width
     canvas: {}
     bases: {}
