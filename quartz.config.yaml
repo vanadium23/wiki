@@ -120,9 +120,8 @@ plugins:
       enableRSS: true
   - source: "@quartz-community/favicon"
     enabled: true
-  # og-image off — too slow to build (decision kept from the previous v5 attempt)
   - source: "@quartz-community/og-image"
-    enabled: false
+    enabled: true
   - source: "@quartz-community/cname"
     enabled: true
   - source: "@quartz-community/canvas-page"
