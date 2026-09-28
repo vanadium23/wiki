@@ -1,0 +1,10 @@
+.git
+.quartz
+.quartz-cache
+node_modules
+public
+docs
+.venv
+.github
+*.md
+!README.md

@@ -1,0 +1,12 @@
+# Wiki v5 vanilla stand, port 41004.
+# Статика собирается Quartz v5 при билде образа (multi-stage, nginx отдаёт).
+services:
+  wiki-v5:
+    image: faber/wiki-v5:dev
+    build:
+      context: .
+      dockerfile: Dockerfile.stand
+    container_name: faber-wiki-v5-dev
+    ports:
+      - "41004:80"
+    restart: unless-stopped
