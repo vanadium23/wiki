@@ -98,6 +98,11 @@ h2 {
   border-top: var(--rule);
   padding-top: 0.6em;
 }
+/* page-title в navbar — тоже h2, но линейка ему не нужна */
+.page[data-frame="full-width"] .page-header > header .page-title {
+  border-top: none;
+  padding-top: 0;
+}
 
 /* плотнее абзацы */
 article p {
@@ -212,9 +217,12 @@ article blockquote {
   background: var(--background-color, #fffef9);
 }
 
-/* статье возвращаем воздух сверху */
+/* статье — компактный отступ от navbar */
 .page[data-frame="full-width"] .page-header .popover-hint {
-  padding-top: 3rem;
+  padding-top: 0.75rem;
+}
+.page[data-frame="full-width"] .page-header .popover-hint > .article-title {
+  margin-top: 0.5rem;
 }
 
 /* лого-иконка перед названием */
