@@ -171,7 +171,9 @@ plugins:
     layout:
       position: beforeBody
       priority: 30
-  - source: "@quartz-community/page-title"
+  # Vendored from @quartz-community/page-title with ChernoWiki patch:
+  # section nav links (Цитатник/Заметки/Мета) beside the site title.
+  - source: ./plugins/page-title
     enabled: true
     layout:
       position: header
