@@ -204,11 +204,7 @@ var GraphLanding_default = ((pageOptions) => {
       const translationKey = multilingual?.translationKey ?? "graph";
       const localeToggle = localeToggleLink(allFiles, locales, localeId, translationKey);
       const homeSlug = findLocaleSlug(allFiles, "home", localeId);
-      const writingSlug = findLocaleSlug(allFiles, "writing", localeId);
-      const aboutSlug = findLocaleSlug(allFiles, "about", localeId);
       const homeHref = homeSlug ? slugToAbsHref(homeSlug) : "/";
-      const aboutHref = aboutSlug ? slugToAbsHref(aboutSlug) : "/meta/";
-      const writingHref = writingSlug ? slugToAbsHref(writingSlug) : "/";
       const graphIndexPath = joinSegments(pathToRoot(slug), "static/graphIndex.json");
       return /* @__PURE__ */ u2(
         "div",
@@ -263,8 +259,9 @@ var GraphLanding_default = ((pageOptions) => {
                 /* @__PURE__ */ u2("div", { class: "graph-landing__chrome", children: [
                   /* @__PURE__ */ u2("div", { class: "graph-landing__title-block graph-landing__title-block--chrome", children: /* @__PURE__ */ u2("a", { class: "graph-landing__title", href: homeHref, children: siteTitle }) }),
                   /* @__PURE__ */ u2("nav", { class: "graph-landing__top-right", "aria-label": "Site", children: [
-                    /* @__PURE__ */ u2("a", { class: "graph-landing__nav-link", href: writingHref, children: copy.articles }),
-                    /* @__PURE__ */ u2("a", { class: "graph-landing__nav-link", href: aboutHref, children: copy.about }),
+                    /* @__PURE__ */ u2("a", { class: "graph-landing__nav-link", href: "/mine/", children: "\u0426\u0438\u0442\u0430\u0442\u043D\u0438\u043A" }),
+                    /* @__PURE__ */ u2("a", { class: "graph-landing__nav-link", href: "/forge/", children: "\u0417\u0430\u043C\u0435\u0442\u043A\u0438" }),
+                    /* @__PURE__ */ u2("a", { class: "graph-landing__nav-link", href: "/meta/", children: "\u041C\u0435\u0442\u0430" }),
                     localeToggle ? /* @__PURE__ */ u2(
                       "a",
                       {

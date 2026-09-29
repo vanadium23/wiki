@@ -305,12 +305,8 @@ export default ((pageOptions?: GraphLandingPageOptions) => {
       const translationKey = multilingual?.translationKey ?? "graph"
       const localeToggle = localeToggleLink(allFiles, locales, localeId, translationKey)
       const homeSlug = findLocaleSlug(allFiles, "home", localeId)
-      const writingSlug = findLocaleSlug(allFiles, "writing", localeId)
-      const aboutSlug = findLocaleSlug(allFiles, "about", localeId)
-      // ChernoWiki: single-locale fallbacks — articles link home, about → /meta/
+      // ChernoWiki: nav links point at the site's own sections (Шахта/Кузня/Мета)
       const homeHref = homeSlug ? slugToAbsHref(homeSlug) : "/"
-      const aboutHref = aboutSlug ? slugToAbsHref(aboutSlug) : "/meta/"
-      const writingHref = writingSlug ? slugToAbsHref(writingSlug) : "/"
       const graphIndexPath = joinSegments(pathToRoot(slug), "static/graphIndex.json")
 
       return (
@@ -379,11 +375,14 @@ export default ((pageOptions?: GraphLandingPageOptions) => {
                   </a>
                 </div>
                 <nav class="graph-landing__top-right" aria-label="Site">
-                  <a class="graph-landing__nav-link" href={writingHref}>
-                    {copy.articles}
+                  <a class="graph-landing__nav-link" href="/mine/">
+                    Цитатник
                   </a>
-                  <a class="graph-landing__nav-link" href={aboutHref}>
-                    {copy.about}
+                  <a class="graph-landing__nav-link" href="/forge/">
+                    Заметки
+                  </a>
+                  <a class="graph-landing__nav-link" href="/meta/">
+                    Мета
                   </a>
                   {localeToggle ? (
                     <a
