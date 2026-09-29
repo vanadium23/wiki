@@ -248,6 +248,17 @@ plugins:
     enabled: true
     options: {}
     order: 45
+  # Full-viewport knowledge-graph page (/graph) — pageType plugin.
+  # Vendored from github:GoBeromsu/quartz-graph-landing with ChernoWiki
+  # patches: site title from config, RU copy, no ambient YouTube audio,
+  # single-locale nav fallbacks. Activated per-page via frontmatter
+  # translationKey: graph (content/graph.md).
+  - source: ./plugins/graph-landing
+    enabled: true
+    options:
+      indexSource: contentIndex
+      defaultLocale: ru
+    order: 55
   - source: "@quartz-community/encrypted-pages"
     enabled: true
     options:

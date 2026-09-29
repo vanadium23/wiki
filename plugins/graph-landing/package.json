@@ -1,0 +1,114 @@
+{
+  "name": "graph-landing",
+  "version": "0.1.1",
+  "description": "Locale home pageType that renders a full-viewport knowledge-graph constellation.",
+  "keywords": [
+    "quartz",
+    "quartz-plugin",
+    "graph",
+    "pageType",
+    "3d",
+    "visualization"
+  ],
+  "homepage": "https://github.com/GoBeromsu/quartz-graph-landing#readme",
+  "bugs": {
+    "url": "https://github.com/GoBeromsu/quartz-graph-landing/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GoBeromsu/quartz-graph-landing"
+  },
+  "author": "GoBeromsu",
+  "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "preact": "^10.0.0"
+  },
+  "peerDependenciesMeta": {
+    "preact": {
+      "optional": false
+    }
+  },
+  "dependencies": {
+    "@quartz-community/types": "^1.0.0",
+    "hast-util-to-jsx-runtime": "^2.3.6"
+  },
+  "devDependencies": {
+    "@types/hast": "^3.0.4",
+    "@types/node": "^24.10.0",
+    "preact": "^10.28.2",
+    "sass": "^1.97.3",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3"
+  },
+  "quartz": {
+    "name": "graph-landing",
+    "displayName": "Graph Landing",
+    "description": "Full-viewport knowledge-graph constellation for locale home pages.",
+    "category": [
+      "pageType"
+    ],
+    "version": "0.1.1",
+    "quartzVersion": ">=5.0.0",
+    "dependencies": [],
+    "defaultOrder": 55,
+    "defaultEnabled": true,
+    "defaultOptions": {
+      "indexSource": "contentIndex"
+    },
+    "configSchema": {
+      "indexSource": {
+        "type": "string"
+      },
+      "tagCooccurrence": {
+        "type": "object"
+      },
+      "maxRenderedNodes": {
+        "type": "number"
+      },
+      "expandHops": {
+        "type": "number"
+      },
+      "renderMode": {
+        "type": "string"
+      },
+      "layout": {
+        "type": "object"
+      },
+      "lod": {
+        "type": "object"
+      },
+      "ambientVideoId": {
+        "type": "string"
+      },
+      "defaultLocale": {
+        "type": "string"
+      }
+    }
+  },
+  "engines": {
+    "node": ">=22",
+    "npm": ">=10.9.2"
+  }
+}
