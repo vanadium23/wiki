@@ -275,3 +275,43 @@ article blockquote {
   position: absolute;
   left: 0;
 }
+
+/* ===== BACKLINKS «Акцентная запись», приглушённая (выбор Ивана
+   2026-10-03: «v3, но не такой акцентный»). Анатомия v3 — левая
+   линейка, подложка, стек; весь бордовый убран. Элементы — только
+   из словаря страницы: волосяная линейка, серые чернила
+   (--text-color-alt), подложка (--background-color-alt). */
+
+/* ---------- Блок «Обратные ссылки» ----------
+   Левая линейка, подложка, стек. Ссылки серыми → чернильные на
+   hover. Подложка сохранена: без неё левая линейка повисает. */
+body .backlinks {
+  border-left: 1px solid var(--dark, #111);
+  background: var(--background-color-alt);
+  padding: 0.6rem 0.9rem;
+}
+body .backlinks > h3 {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-color-alt);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+body .backlinks > ul.overflow {
+  margin: 0.4rem 0 0;
+  max-height: none;
+}
+body .backlinks > ul.overflow > li {
+  display: list-item;
+}
+body .backlinks > ul.overflow > li:not(.overflow-end)::before {
+  content: "↩ ";
+  color: var(--text-color-alt);
+}
+body .backlinks > ul.overflow > li a {
+  font-size: 0.8rem;
+  color: var(--text-color-alt);
+}
+body .backlinks > ul.overflow > li a:hover {
+  color: var(--text-color);
+}
