@@ -153,9 +153,16 @@ plugins:
         grow: true
   - source: "@quartz-community/backlinks"
     enabled: true
+    options:
+      hideWhenEmpty: true
+    # v5 flat: FullWidthFrame drops the right slot, so the enabled plugin
+    # never rendered. afterBody IS rendered (after <hr/>, .page-footer) —
+    # backlinks return as a below-article block, hidden on pages without
+    # inbound links, never on the index.
     layout:
-      position: right
-      priority: 50
+      position: afterBody
+      priority: 10
+      condition: not-index
   - source: "@quartz-community/article-title"
     enabled: true
     layout:
