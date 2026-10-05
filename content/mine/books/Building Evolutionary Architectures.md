@@ -34,4 +34,5 @@ Competency:: [[software architecture|software architecture]]
 
 - [[../quotes/202209022221|202209022221]]: architects must determine the most important -ilities.
 - [[../quotes/202209071935|202209071935]]: the list of -ilities
+- [[../quotes/202209181625|202209181625]]: finding the correct service granularity is key for decomposing.
 
